@@ -1,3 +1,3 @@
-# Django Blog
+# My Django Blog
 
 Something in here.
