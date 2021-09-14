@@ -1,0 +1,30 @@
+{% extends 'blog/layout.html' %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="text-center mb-5">Create A New Post</h1>
+        <hr>
+        <div class="container text-center">
+            <form method='POST' enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <span style="color: #777777">Title</span>
+                <div class="my-2">
+                    {{form.title}}
+                </div>
+
+                <span style="color: #777777">Content</span>
+                <div class="d-flex my-2" style="justify-content: center;">
+                    {{form.content}}
+                </div>
+                
+                <span style="color: #777777">Image</span>
+                <div class="my-2 mb-4">                    
+                    {{form.image}}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add Post</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+

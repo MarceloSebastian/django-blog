@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post
+from .forms import CreateForm
 
 def home(request):
     context = {}
@@ -18,4 +19,17 @@ def post_view(request, post_id):
     context = {'post': post}
     return render(request, 'blog/post_view.html', context)
 
+def create_view(request):
+    if request.method == 'POST':
+        form = CreateForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.creator = request.user
+            post.save()
+            return redirect('posts')
+    else:
+        form = CreateForm()
+
+    context = {'form': form}
+    return render(request, 'blog/create_view.html', context)
 
