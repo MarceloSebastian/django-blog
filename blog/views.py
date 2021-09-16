@@ -33,3 +33,23 @@ def create_view(request):
     context = {'form': form}
     return render(request, 'blog/create_view.html', context)
 
+def edit_view(request, post_id):
+    post = Post.objects.get(id=post_id)
+    if request.method == 'POST':
+        form = CreateForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('posts')
+    else:
+        form = CreateForm(instance=post)
+
+    context = {'form': form}
+    return render(request, 'blog/edit_view.html', context)
+
+
+def delete(request, post_id):
+    post = Post.objects.get(id=post_id)
+    post.delete()
+    return redirect('posts')
+
+

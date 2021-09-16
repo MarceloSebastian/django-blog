@@ -13,7 +13,11 @@
             </div>
             <p style="font-size: 20px;">{{ post.content }}</p>
         </div>
-        <a class="btn btn-success btn-lg" href="{% url 'posts' %}" role="button">Back to Posts</a>
+        <a class="btn btn-success btn-lg mr-3" href="{% url 'posts' %}" role="button">Back to Posts</a>
+        {% if request.user == post.creator %}
+            <a class="btn btn-warning btn-lg mr-3" href="{% url 'edit' post.id %}" role="button">Edit Post</a>
+            <a class="btn btn-danger btn-lg mr-3" href="{% url 'delete' post.id %}" role="button">Delete Post</a>
+        {% endif %}
     </div>
 {% endblock %}
 
