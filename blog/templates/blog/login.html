@@ -1,0 +1,29 @@
+{% extends 'blog/layout.html' %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="text-center mb-5">Login</h1>
+        <hr>
+        <div class="container text-center">
+            <form method="post">
+                {% csrf_token %}
+                <label for="user-name-id">Username</label>
+                <div class="input-wrapper">
+                    {{ form.username }}
+                </div>
+    
+                <label for="password-id">Password</label>
+                <div class="input-wrapper mb-4">
+                    {{ form.password }}
+                </div>
+                {% if form.errors %}
+                <div class="alert alert-danger w-50 m-auto" role="alert">
+                    Username or password not correct.
+                </div>
+                {% endif %}
+    
+                <button class="btn btn-primary mt-4">Log in</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+

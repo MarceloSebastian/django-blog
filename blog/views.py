@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Post
-from .forms import CreateForm
+from .forms import CreateForm, CreateUserForm
 
 def home(request):
     context = {}
@@ -51,5 +51,16 @@ def delete(request, post_id):
     post = Post.objects.get(id=post_id)
     post.delete()
     return redirect('posts')
+
+def register_view(request):
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = CreateUserForm()
+    context = {'form': form}
+    return render(request, 'blog/register_view.html', context)
 
 

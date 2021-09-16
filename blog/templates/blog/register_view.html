@@ -1,0 +1,38 @@
+{% extends 'blog/layout.html' %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="text-center mb-5">Register Account</h1>
+        <hr>
+        <div class="container text-center">
+            <form method='POST'>
+                {% csrf_token %}
+                <label>Display Name</label>
+                <div class="my-2">
+                    {{form.first_name}}
+                </div>
+
+                <label>Username</label>
+                <div class="my-2" style="justify-content: center;">
+                    {{form.username}}
+                </div>
+                
+                <label>Email</label>
+                <div class="my-2 mb-3">                    
+                    {{form.email}}
+                </div>
+                
+                <label>Password</label>
+                <div class="my-2 mb-4">                    
+                    {{form.password1}}
+                </div>
+                
+                <label>Confirm Password</label>
+                <div class="my-2 mb-4">                    
+                    {{form.password2}}
+                </div>
+                <button type="submit" class="btn btn-primary">Register Account</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
