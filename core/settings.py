@@ -5,12 +5,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-06^o30d!m16*g)dp%*90v4zsqz2rmj*87wx)965u4l@=!xx*3x'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
