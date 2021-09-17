@@ -5,9 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-06^o30d!m16*g)dp%*90v4zsqz2rmj*87wx)965u4l@=!xx*3x'
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'delta-blog-app.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'delta-blog-app.herokuapp.com', '*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -91,12 +91,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
-STATIC_URL = '/media/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'media'),
 )
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 LOGIN_URL = 'login'
