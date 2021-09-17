@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-06^o30d!m16*g)dp%*90v4zsqz2rmj*87wx)965u4l@=!xx*3x
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'delta-blog-app.herokuapp.com/']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
